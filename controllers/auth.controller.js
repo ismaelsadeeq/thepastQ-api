@@ -51,8 +51,5 @@ const logout = async (req,res)=>{
 
 module.exports = {
   login,
-  adminLogin,
-  register,
-  adminRegister,
   logout
 }
