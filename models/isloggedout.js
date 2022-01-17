@@ -11,9 +11,10 @@ module.exports = (sequelize, DataTypes) => {
     });
   }
   isLoggedOut.init({
-    status: DataTypes.STRING
+    status: DataTypes.BOOLEAN
   }, {
     sequelize,
+    paranoid:true,
     modelName: 'isLoggedOut',
   });
   return isLoggedOut;

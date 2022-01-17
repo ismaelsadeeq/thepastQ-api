@@ -8,8 +8,18 @@ module.exports = {
         unique:true,
         type:Sequelize.UUID
       },
+      userId: {
+        type: Sequelize.UUID,
+        allowNull:false,
+        onDelete:'CASCADE',
+        references:{
+          model:'users',
+          key:'id',
+          as:'userId'
+        }
+      },
       status: {
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
