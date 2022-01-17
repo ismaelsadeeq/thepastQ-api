@@ -7,6 +7,8 @@ const passport = require('passport');
 var cors = require('cors')  
 
 const indexRouter = require('./routes/index');
+const authRouter = require('./routes/auth');
+const adminRouter = require('./routes/admin');
 
 var app = express();
 
@@ -29,6 +31,9 @@ require('./config/passport')(passport);
 
 
 app.use('/', indexRouter);
+app.use('/auth', authRouter);
+app.use('/admin', adminRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
