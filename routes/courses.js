@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
-const controller = require('../controllers/department.controller')
+const controller = require('../controllers/courses.controller')
 const passport = require('passport')
 
-router.get('/course/:id',
-  controller.getQuestionsOfACourse
+router.get('/level/:id',
+  controller.getCoursesOfALevelSemester
 )
 router.post('/:id',
   passport.authenticate('jwt',{session:false}),
-	controller.createQuestion
+	controller.createCourse
 );
 router.put('/:id',
   passport.authenticate('jwt',{session:false}),
-	controller.editQuestion
+	controller.editCourse
 );
 router.delete('/:id',
   passport.authenticate('jwt',{session:false}),
-	controller.deleteQuestion
+	controller.deleteCourse
 );
 module.exports = router;

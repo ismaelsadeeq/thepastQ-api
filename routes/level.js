@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const controller = require('../controllers/department.controller')
+const controller = require('../controllers/level.controller')
 const passport = require('passport')
 
 router.get('/department/:id',
