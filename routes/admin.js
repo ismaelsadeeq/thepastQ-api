@@ -4,7 +4,6 @@ const controller = require('../controllers/admin.controller')
 const passport = require('passport')
 
 router.post('/create',
-  passport.authenticate('jwt',{session:false}),
 	controller.createAdmin
 );
 router.put('/edit/:id',
