@@ -1,25 +1,15 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('isLoggedOuts', {
+    await queryInterface.createTable('faculties', {
       id: {
         allowNull: false,
         primaryKey: true,
         unique:true,
         type:Sequelize.UUID
       },
-      userId: {
-        type: Sequelize.UUID,
-        allowNull:false,
-        onDelete:'CASCADE',
-        references:{
-          model:'users',
-          key:'id',
-          as:'userId'
-        }
-      },
-      status: {
-        type: Sequelize.BOOLEAN
+      name: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -32,10 +22,10 @@ module.exports = {
       deletedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('isLoggedOuts');
+    await queryInterface.dropTable('faculties');
   }
 };
