@@ -9,6 +9,9 @@ module.exports = (sequelize, DataTypes) => {
     department.belongsTo(models.faculty,{
       foreignKey:'facultyId'
     })
+    department.hasMany(models.level,{
+      foreignKey:'departmentId'
+    });
   }
   department.init({
     name: DataTypes.STRING
