@@ -83,7 +83,7 @@ const editLevel = async (req,res)=>{
 }
 const deleteLevel = async(req,res)=>{
   const id = req.params.id;
-  const department = await models.level.destroy(
+  const level = await models.level.destroy(
     {
       where:{
         id:id
@@ -92,7 +92,7 @@ const deleteLevel = async(req,res)=>{
   );
   responseData.message = "success";
   responseData.status = true;
-  responseData.data = department;
+  responseData.data = level;
   return res.json(responseData);
 }
 module.exports = {
