@@ -3,19 +3,19 @@ var router = express.Router();
 const controller = require('../controllers/department.controller')
 const passport = require('passport')
 
-router.get('/level/:id',
-  controller.getCoursesOfALevelSemester
+router.get('/course/:id',
+  controller.getQuestionsOfACourse
 )
 router.post('/:id',
   passport.authenticate('jwt',{session:false}),
-	controller.createCourse
+	controller.createQuestion
 );
 router.put('/:id',
   passport.authenticate('jwt',{session:false}),
-	controller.editCourse
+	controller.editQuestion
 );
 router.delete('/:id',
   passport.authenticate('jwt',{session:false}),
-	controller.deleteCourse
+	controller.deleteQuestion
 );
 module.exports = router;

@@ -5,7 +5,7 @@ const responseData = {
 	message: "Completed",
 	data: null
 }
-const getLevelsDeparment = async (req,res)=>{
+const getLevelsOfADept = async (req,res)=>{
   const departmentId = req.params.id;
   const levels = await models.level.findAll({
     where:{
@@ -96,7 +96,7 @@ const deleteLevel = async(req,res)=>{
   return res.json(responseData);
 }
 module.exports = {
-  getLevelsDeparment,
+  getLevelsOfADept,
   createLevel,
   editLevel,
   deleteLevel
