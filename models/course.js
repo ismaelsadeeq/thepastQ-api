@@ -8,7 +8,10 @@ module.exports = (sequelize, DataTypes) => {
   course.associate = function(models){
     course.belongsTo(models.level,{
       foreignKey:'levelId'
-    })
+    });
+    course.hasMany(models.question,{
+      foreignKey:'courseId'
+    });
   }
   course.init({
     name: DataTypes.STRING,
