@@ -1,5 +1,6 @@
 const models = require('../models');
 const uuid = require('uuid');
+const bcrypt = require('bcrypt');
 
 const responseData = {
 	status: true,
@@ -134,7 +135,7 @@ const resetAdminPassword = async (req,res)=>{
       );
       responseData.message = "password changed";
       responseData.status = true;
-      responseData.data = null;
+      responseData.data = undefined;
       return res.json(responseData);
     } else {
       responseData.message = "password did not match";

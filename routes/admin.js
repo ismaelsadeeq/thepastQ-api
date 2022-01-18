@@ -10,18 +10,19 @@ router.put('/edit/:id',
   passport.authenticate('jwt',{session:false}),
 	controller.editAdmin
 );
-router.delete('/delete',
+router.delete('/:id',
   passport.authenticate('jwt',{session:false}),
 	controller.deleteAdmin
-);
-router.get('/:id',
-  passport.authenticate('jwt',{session:false}),
-	controller.getAdmin
 );
 router.get('/all',
   passport.authenticate('jwt',{session:false}),
 	controller.getAllAdmin
 );
+router.get('/:id',
+  passport.authenticate('jwt',{session:false}),
+	controller.getAdmin
+);
+
 router.put('/reset-password',
   passport.authenticate('jwt',{session:false}),
 	controller.resetAdminPassword
