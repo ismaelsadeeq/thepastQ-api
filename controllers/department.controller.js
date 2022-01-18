@@ -38,8 +38,9 @@ const getDeparmentOfFaculty = async (req,res)=>{
 }
 const createDepartment = async(req,res)=>{
   const data = req.body;
-  if(!data.name){
-    responseData.message = "department name required";
+  const facultyId = req.params.id;
+  if(!data){
+    responseData.message = "data required";
     responseData.status = false;
     responseData.data = undefined;
     return res.json(responseData);
@@ -47,7 +48,8 @@ const createDepartment = async(req,res)=>{
   const department = await models.department.create(
     {
       id:uuid.v4(),
-      name:data.name
+      name:data.name,
+      facultyId:facultyId
     }
   );
   if(!department){
@@ -72,7 +74,8 @@ const editDepartment = async (req,res)=>{
   }
   const department = await models.department.update(
     {
-      name:data.name
+      name:data.name,
+      facultyId:data.facultyId
     },
     {
       where:{

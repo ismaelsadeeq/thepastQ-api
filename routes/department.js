@@ -9,7 +9,7 @@ router.get('/all',
 router.get('/faculty/:id',
   controller.getDeparmentOfFaculty
 )
-router.post('/',
+router.post('/:id',
   passport.authenticate('jwt',{session:false}),
 	controller.createDepartment
 );
