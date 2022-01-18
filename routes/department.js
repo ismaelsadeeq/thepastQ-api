@@ -3,9 +3,6 @@ var router = express.Router();
 const controller = require('../controllers/department.controller')
 const passport = require('passport')
 
-router.get('/all',
-  controller.getDepartments
-)
 router.get('/faculty/:id',
   controller.getDeparmentOfFaculty
 )

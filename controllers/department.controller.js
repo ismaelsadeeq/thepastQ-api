@@ -5,19 +5,7 @@ const responseData = {
 	message: "Completed",
 	data: null
 }
-const getDepartments = async (req,res)=>{
-  const departments = await models.department.findAll();
-  if(!departments){
-    responseData.message = "something went wrong";
-    responseData.status = false;
-    responseData.data = undefined;
-    return res.json(responseData);
-  }
-  responseData.message = "success";
-  responseData.status = true;
-  responseData.data = departments;
-  return res.json(responseData);
-}
+
 const getDeparmentOfFaculty = async (req,res)=>{
   const facultyId = req.params.id;
   const departments = await models.department.findAll({
@@ -109,7 +97,6 @@ const deleteDepartment = async(req,res)=>{
   return res.json(responseData);
 }
 module.exports = {
-  getDepartments,
   getDeparmentOfFaculty,
   createDepartment,
   editDepartment,
