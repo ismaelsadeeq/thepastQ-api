@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   question.init({
     name: DataTypes.STRING,
     title: DataTypes.STRING,
+    isActive:DataTypes.BOOLEAN,
     year: DataTypes.STRING,
     source: DataTypes.STRING
   }, {

@@ -18,6 +18,9 @@ module.exports = {
           as:'courseId'
         }
       },
+      isActive :{
+        type: Sequelize.BOOLEAN
+      },
       name: {
         type: Sequelize.STRING
       },
