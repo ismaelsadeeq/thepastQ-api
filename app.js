@@ -9,6 +9,11 @@ var cors = require('cors')
 const indexRouter = require('./routes/index');
 const authRouter = require('./routes/auth');
 const adminRouter = require('./routes/admin');
+const courseRouter = require('./routes/courses');
+const departmentRouter = require('./routes/department');
+const facultyRouter = require('./routes/faculty');
+const levelRouter = require('./routes/level');
+const questionRouter = require('./routes/question');
 
 var app = express();
 
@@ -33,6 +38,11 @@ require('./config/passport')(passport);
 app.use('/', indexRouter);
 app.use('/auth', authRouter);
 app.use('/admin', adminRouter);
+app.use('/course', courseRouter);
+app.use('/department', departmentRouter);
+app.use('/faculty', facultyRouter);
+app.use('/level', levelRouter);
+app.use('/question', questionRouter);
 
 
 // catch 404 and forward to error handler
