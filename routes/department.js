@@ -4,14 +4,14 @@ const controller = require('../controllers/department.controller')
 const passport = require('passport')
 
 router.get('/all',
-  controller.getDeparments
+  controller.getDepartments
 )
 router.get('/faculty/:id',
   controller.getDeparmentOfFaculty
 )
 router.post('/',
   passport.authenticate('jwt',{session:false}),
-	controller.createDeparment
+	controller.createDepartment
 );
 router.put('/:id',
   passport.authenticate('jwt',{session:false}),
