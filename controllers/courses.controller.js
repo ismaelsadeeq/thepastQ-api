@@ -7,8 +7,9 @@ const responseData = {
 }
 const getCoursesOfALevelSemester = async (req,res)=>{
   const levelId = req.params.id;
+  const semester = req.params.semester
   const data = req.body;
-  if(!data.semester){
+  if(!semester){
     responseData.message = "semester required";
     responseData.status = false;
     responseData.data = undefined;
@@ -17,7 +18,7 @@ const getCoursesOfALevelSemester = async (req,res)=>{
   const courses = await models.course.findAll({
     where:{
       levelId:levelId,
-      semester:data.semester
+      semester:semester
     }
   });
   if(!courses){

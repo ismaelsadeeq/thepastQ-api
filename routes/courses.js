@@ -3,7 +3,7 @@ var router = express.Router();
 const controller = require('../controllers/courses.controller')
 const passport = require('passport')
 
-router.get('/level/:id',
+router.get('/level/:id/:semester',
   controller.getCoursesOfALevelSemester
 )
 router.post('/:id',
