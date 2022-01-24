@@ -2,7 +2,8 @@ const models = require('../models');
 const multer = require('multer')
 const uuid = require('uuid');
 const multerConfig = require('../config/multer');
-
+const fs = require('fs');
+const cloudinary = require('../cloudinaryConfig')
 const responseData = {
 	status: true,
 	message: "Completed",
@@ -75,6 +76,9 @@ const createQuestionAdmin = async(req,res)=>{
       responseData.data = undefined;
       return res.json(responseData);
     }
+    console.log("heeee")
+    const uploader = async (path)=> await cloudinary.uploads(path,'Images');
+    let path = await uploader(req.file.path);
     const question = await models.question.create(
       {
         id:uuid.v4(),
@@ -83,9 +87,10 @@ const createQuestionAdmin = async(req,res)=>{
         year:data.year,
         isActive:true,
         title:data.title,
-        source:req.file.path
+        source:path.url
       }
     );
+    fs.unlinkSync(req.file.path);
     if(!question){
       responseData.message = "something went wrong";
       responseData.status = false;
